@@ -68,7 +68,7 @@ if (isset($_GET['login'])) {
     <meta property="og:description" content="Portal der FRS Stettbeck" />
 </head>
 
-<body id="login" class="d-flex justify-content-center align-items-center" style="height:100vh;width:100vw">
+<body id="loginpage" class="d-flex justify-content-center align-items-center" style="height:100vh;width:100vw">
     <div class="row">
         <div class="col">
             <div class="card p-3 rounded-3 shadow-lg text-center">
@@ -91,6 +91,9 @@ if (isset($_GET['login'])) {
 
                     <input class="btn btn-primary w-100" type="submit" value="Anmelden">
                 </form>
+                <div class="mt-4" id="loginpage__footer">
+                    Erstellt von Sunny & hypax. Mit <i class="fa-solid fa-heart"></i> und <i class="fa-solid fa-code"></i>.
+                </div>
             </div>
         </div>
     </div>

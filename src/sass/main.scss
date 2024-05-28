@@ -10,14 +10,15 @@ body {
 }
 
 #startpage,
-#login {
+#loginpage {
   background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.45)),
     url("../img/NordNetzwerk.eu_-_FR_Stettbeck.png");
   background-size: cover;
   background-repeat: no-repeat;
 }
 
-#startpage__footer {
+#startpage__footer,
+#loginpage__footer {
   opacity: 0.6;
   font-size: 0.8rem;
 }
