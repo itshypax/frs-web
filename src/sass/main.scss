@@ -291,3 +291,20 @@ body {
     text-align: center;
   }
 }
+
+.learning__container a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.learning__container .learning__card-header {
+  text-align: center;
+}
+
+.learning__container .learning__card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 250px;
+}
