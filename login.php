@@ -82,10 +82,13 @@ if (isset($_GET['login'])) {
 
                 <form action="?login=1" method="post">
                     Benutzername<br>
-                    <input class="form-control" type="text" size="40" maxlength="250" name="username"><br><br>
+                    <input class="form-control" type="text" size="40" maxlength="250" name="username" placeholder="TheLegend27"><br><br>
 
                     Passwort<br>
-                    <input class="form-control" type="password" size="40" maxlength="250" name="password"><br>
+                    <div class="input-group mb-3">
+                        <input type="password" class="form-control" name="password" id="password" placeholder="***">
+                        <button class="btn btn-outline-dark" type="button" id="show_pw"><i class="fa-solid fa-eye"></i></button>
+                    </div>
 
                     <input class="btn btn-primary w-100" type="submit" value="Anmelden">
                 </form>
@@ -95,6 +98,7 @@ if (isset($_GET['login'])) {
             </div>
         </div>
     </div>
+    <script src="/components/js/show_password.js"></script>
 </body>
 
 </html>
