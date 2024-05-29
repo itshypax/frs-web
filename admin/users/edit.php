@@ -3,15 +3,24 @@ session_start();
 require_once '../../config/config.php';
 $pdo = new PDO('mysql:host=' . MYSQL_ROOT . ';dbname=' . MYSQL_DB, MYSQL_USER, MYSQL_PASS);
 
+if (!isset($_GET['id'])) {
+    header("Location: /admin/users/list.php");
+}
+
+$get = $pdo->prepare("SELECT * FROM users where id = :id");
+$get->execute(array('id' => $_GET['id']));
+$data = $get->fetch();
+
+
 if (isset($_POST['new']) && $_POST['new'] == 1) {
+    $id = $_REQUEST['id'];
     $username = $_REQUEST['username'];
     $fullname = $_REQUEST['icname'];
-    $password = password_hash($_REQUEST['password'], PASSWORD_DEFAULT);
     $role = $_REQUEST['role'];
     $jetzt = date("Y-m-d H:i:s");
 
-    $statement = $pdo->prepare("INSERT INTO users (username, password, fullname, role) VALUES (:username, :password, :fullname, :role)");
-    $statement->execute(array('username' => $username, 'password' => $password, 'fullname' => $fullname, 'role' => $role));
+    $statement = $pdo->prepare("UPDATE users SET username = :username, fullname = :fullname, role = :role WHERE id = :id");
+    $statement->execute(array('username' => $username, 'fullname' => $fullname, 'role' => $role, 'id' => $id));
     header("Location: /admin/users/list.php");
 }
 
@@ -23,7 +32,7 @@ if (isset($_POST['new']) && $_POST['new'] == 1) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Benutzer erstellen &rsaquo; FRS-Portal</title>
+    <title>Benutzer bearbeiten &rsaquo; FRS-Portal</title>
     <!-- Stylesheets -->
     <link rel="stylesheet" href="../../src/css/main.min.css" />
     <link rel="stylesheet" href="../../src/fonts/fontawesome/css/all.min.css" />
@@ -75,7 +84,7 @@ if (isset($_POST['new']) && $_POST['new'] == 1) {
         <div class="container">
             <div class="text__heading">
                 <div class="text__heading-foreground">
-                    <h1 class="text-center fw-bold mb-4">Benutzer erstellen</h1>
+                    <h1 class="text-center fw-bold mb-4">Benutzer bearbeiten</h1>
                 </div>
             </div>
             <div class="row">
@@ -85,23 +94,19 @@ if (isset($_POST['new']) && $_POST['new'] == 1) {
                         <div class="card-body">
                             <form method="post" action="">
                                 <input type="hidden" name="new" id="new" value="1">
-                                <input type="text" class="form-control" name="username" id="username" placeholder="Benutzername">
-                                <div class="input-group mt-3">
-                                    <input type="password" class="form-control" name="password" id="password" placeholder="Passwort">
-                                    <button class="btn btn-outline-dark" type="button" id="show_pw"><i class="fa-solid fa-eye"></i></button>
-                                    <button class="btn btn-outline-dark" type="button" id="shuffle_pw"><i class="fa-solid fa-shuffle"></i></button>
-                                </div>
+                                <input name="id" type="hidden" value="<?= $data['id'] ?>" />
+                                <input type="text" class="form-control" name="username" id="username" placeholder="Benutzername" value="<?= $data['username'] ?>">
                                 <hr class="my-3">
-                                <input type="text" class="form-control" name="icname" id="icname" placeholder="Vor- und Zuname (IC)">
-                                <select class="form-select mt-3" name="role" id="role">
-                                    <option value="0">Gast</option>
-                                    <option value="1">Benutzer</option>
-                                    <option value="2">Lorem</option>
-                                    <option value="3">Ipsum</option>
-                                    <option value="4">Dolor</option>
+                                <input type="text" class="form-control" name="icname" id="icname" placeholder="Vor- und Zuname (IC)" value="<?= $data['fullname'] ?>">
+                                <select class="form-select mt-3" name="role" id="role" autocomplete="off">
+                                    <option value="0" <?php if ($data['role'] == 0) echo "selected"; ?>>Gast</option>
+                                    <option value="1" <?php if ($data['role'] == 1) echo "selected"; ?>>Benutzer</option>
+                                    <option value="2" <?php if ($data['role'] == 2) echo "selected"; ?>>Lorem</option>
+                                    <option value="3" <?php if ($data['role'] == 3) echo "selected"; ?>>Ipsum</option>
+                                    <option value="4" <?php if ($data['role'] == 4) echo "selected"; ?>>Dolor</option>
                                 </select>
                                 <hr class="my-3">
-                                <input class="btn btn-outline-success btn-sm" name="submit" type="submit" value="Benutzer anlegen" />
+                                <input class="btn btn-outline-success btn-sm" name="submit" type="submit" value="Änderungen speichern" />
                             </form>
                         </div>
                     </div>

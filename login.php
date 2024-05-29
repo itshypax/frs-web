@@ -25,6 +25,7 @@ if (isset($_GET['login'])) {
     if ($user !== false && password_verify($password, $user['password'])) {
         $_SESSION['id'] = $user['id'];
         $_SESSION['fullname'] = $user['fullname'];
+        $_SESSION['role'] = $user['role'];
 
         if (isset($_SESSION['redirect_url'])) {
             $redirect_url = $_SESSION['redirect_url'];
