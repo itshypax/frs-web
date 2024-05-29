@@ -89,7 +89,8 @@ if (isset($_POST['new']) && $_POST['new'] == 1) {
                                 <div class="input-group mt-3">
                                     <input type="password" class="form-control" name="password" id="password" placeholder="Passwort">
                                     <button class="btn btn-outline-dark" type="button" id="show_pw"><i class="fa-solid fa-eye"></i></button>
-                                    <button class="btn btn-outline-dark" type="button" id="shuffle_pw"><i class="fa-solid fa-shuffle"></i></button>
+                                    <!-- <button class="btn btn-outline-dark" type="button" id="shuffle_pw"><i class="fa-solid fa-shuffle"></i></button> -->
+                                    <!-- // ! FUNKTIONALITÄT FEHLT! -->
                                 </div>
                                 <hr class="my-3">
                                 <input type="text" class="form-control" name="icname" id="icname" placeholder="Vor- und Zuname (IC)">
