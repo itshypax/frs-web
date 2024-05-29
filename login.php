@@ -7,9 +7,7 @@ ini_set('session.cookie_secure', true);  // Set to true if using HTTPS, false ot
 
 session_start();
 require_once './config/config.php';
-// ! DATEN INKORREKT - NACHTRAGEN, DANN ENTKLAMMERN!
-// $pdo = new PDO('mysql:host=' . MYSQL_ROOT . ';dbname=' . MYSQL_DB, MYSQL_USER, MYSQL_PASS); 
-$pdo = NULL;
+$pdo = new PDO('mysql:host=' . MYSQL_ROOT . ';dbname=' . MYSQL_DB, MYSQL_USER, MYSQL_PASS);
 
 if (isset($_SESSION['userid'])) {
     header('Location: /dashboard.php');
@@ -19,7 +17,7 @@ if (isset($_GET['login'])) {
     $username = $_POST['username'];
     $password = $_POST['password'];
 
-    $statement = $pdo->prepare("SELECT * FROM cirs_users WHERE username = :username");
+    $statement = $pdo->prepare("SELECT * FROM users WHERE username = :username");
     $result = $statement->execute(array('username' => $username));
     $user = $statement->fetch();
 
@@ -87,7 +85,7 @@ if (isset($_GET['login'])) {
                     <input class="form-control" type="text" size="40" maxlength="250" name="username"><br><br>
 
                     Passwort<br>
-                    <input class="form-control" type="password" size="40" maxlength="250" name="passwort"><br>
+                    <input class="form-control" type="password" size="40" maxlength="250" name="password"><br>
 
                     <input class="btn btn-primary w-100" type="submit" value="Anmelden">
                 </form>
