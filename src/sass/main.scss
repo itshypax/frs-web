@@ -222,3 +222,72 @@ body {
     background-color: #0f3b66;
   }
 }
+
+::selection,
+::-moz-selection {
+  background-color: #0a2540;
+  color: white;
+}
+
+.learning__card {
+  // background-color: #0a2540;
+  background: linear-gradient(to right bottom, #0a2540 0 60%, #0f3b66 100%);
+  color: white;
+  outline: 4px solid #0a2540;
+  border: 3px solid #0f3b66;
+
+  .learning__card-icon {
+    text-align: center;
+    font-size: 3rem;
+
+    i {
+      padding: 24px;
+      border-radius: 50%;
+      border: 4px solid white;
+      transition: all 0.3s ease;
+    }
+  }
+
+  .learning__card-header h4 {
+    font-weight: bolder;
+  }
+
+  .learning__card-button {
+    text-align: end;
+
+    a {
+      color: #0a2540;
+      background-color: white;
+      text-decoration: none;
+      border-radius: 0;
+      padding: 8px 16px;
+      transition: font-size 0.3s ease;
+    }
+  }
+}
+
+.learning__card:hover .learning__card-icon i {
+  background-color: white;
+  color: #0a2540;
+}
+
+.learning__welcome {
+  font-size: 1.7rem;
+}
+
+.learning__stats {
+  background: linear-gradient(to right bottom, #f0f5fa 0 60%, #f6f9fc 100%);
+  color: #0a2540;
+  outline: 4px solid #f6f9fc;
+  border: 3px solid #0f3b66;
+
+  .learning__stats-number {
+    font-weight: bolder;
+    text-align: center;
+    font-size: 2rem;
+  }
+
+  .learning__stats-description {
+    text-align: center;
+  }
+}
