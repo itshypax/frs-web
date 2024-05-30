@@ -33,7 +33,7 @@ if (isset($_POST['new']) && $_POST['new'] == 1) {
     }
     $insert = $pdo->prepare("INSERT INTO lernfortschritt (userid, fragenid, antwort_1, antwort_2, antwort_3, ergebnis) VALUES (:uid, :id, :antwort_1, :antwort_2, :antwort_3, :ergebnis)");
     $insert->execute(array('uid' => $_SESSION['id'], 'id' => $id, 'antwort_1' => $antwort_1, 'antwort_2' => $antwort_2, 'antwort_3' => $antwort_3, 'ergebnis' => $antwort_check));
-    header("Location: /lernen/themen/lernen.php?thema=" . $thema . "&result=" . $id);
+    header("Location: /lernen/themen/rs/lernen.php?thema=" . $thema . "&result=" . $id);
 }
 
 ?>
@@ -173,7 +173,7 @@ if (isset($_POST['new']) && $_POST['new'] == 1) {
                     <hr class="my-5" style="color:transparent">
                     </hr>
                     <div class="learning__question-button">
-                        <a class="btn btn-lg btn-primary rounded-0" href="/lernen/themen/lernen.php?thema=<?= $frage['thema'] ?>">Weiter</a>
+                        <a class="btn btn-lg btn-primary rounded-0" href="/lernen/themen/rs/lernen.php?thema=<?= $frage['thema'] ?>">Weiter</a>
                     </div>
                 </form>
             <?php } ?>
