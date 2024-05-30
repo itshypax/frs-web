@@ -89,8 +89,7 @@ if (isset($_POST['new']) && $_POST['new'] == 1) {
                                 <div class="input-group mt-3">
                                     <input type="password" class="form-control" name="password" id="password" placeholder="Passwort">
                                     <button class="btn btn-outline-dark" type="button" id="show_pw"><i class="fa-solid fa-eye"></i></button>
-                                    <!-- <button class="btn btn-outline-dark" type="button" id="shuffle_pw"><i class="fa-solid fa-shuffle"></i></button> -->
-                                    <!-- // ! FUNKTIONALITÄT FEHLT! -->
+                                    <button class="btn btn-outline-dark" type="button" id="shuffle_pw"><i class="fa-solid fa-shuffle"></i></button>
                                 </div>
                                 <hr class="my-3">
                                 <input type="text" class="form-control" name="icname" id="icname" placeholder="Vor- und Zuname (IC)">
@@ -115,6 +114,7 @@ if (isset($_POST['new']) && $_POST['new'] == 1) {
         Erstellt von Sunny & hypax. Mit <i class="fa-solid fa-heart"></i> und <i class="fa-solid fa-code"></i>.
     </div>
     <script src="/components/js/show_password.js"></script>
+    <script src="/components/js/shuffle_password.js"></script>
 </body>
 
 </html>
