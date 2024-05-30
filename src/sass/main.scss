@@ -323,4 +323,11 @@ body {
     align-items: center;
     justify-content: center;
   }
+
+  .learning__question-true {
+    color: green;
+  }
+  .learning__question-false {
+    color: red;
+  }
 }

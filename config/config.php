@@ -7,3 +7,5 @@ define('MYSQL_PORT', '3306', false);
 define('MYSQL_USER', 'lernportal_user', false);
 define('MYSQL_PASS', 'fQb33m8%0', false);
 define('MYSQL_DB', 'frslernportal', false);
+
+$pdo = new PDO('mysql:host=' . MYSQL_ROOT . ';dbname=' . MYSQL_DB, MYSQL_USER, MYSQL_PASS);

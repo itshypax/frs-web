@@ -7,7 +7,6 @@ ini_set('session.cookie_secure', true);  // Set to true if using HTTPS, false ot
 
 session_start();
 require_once './config/config.php';
-$pdo = new PDO('mysql:host=' . MYSQL_ROOT . ';dbname=' . MYSQL_DB, MYSQL_USER, MYSQL_PASS);
 
 if (isset($_SESSION['userid'])) {
     header('Location: /dashboard.php');

@@ -12,21 +12,21 @@ $pdo = new PDO('mysql:host=' . MYSQL_ROOT . ';dbname=' . MYSQL_DB, MYSQL_USER, M
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Benutzerübersicht &rsaquo; FRS-Portal</title>
     <!-- Stylesheets -->
-    <link rel="stylesheet" href="../../src/css/main.min.css" />
-    <link rel="stylesheet" href="../../src/fonts/fontawesome/css/all.min.css" />
-    <link rel="stylesheet" href="../../src/fonts/ptsans/css/all.min.css" />
+    <link rel="stylesheet" href="/src/css/main.min.css" />
+    <link rel="stylesheet" href="/src/fonts/fontawesome/css/all.min.css" />
+    <link rel="stylesheet" href="/src/fonts/ptsans/css/all.min.css" />
     <!-- Bootstrap -->
-    <link rel="stylesheet" href="../../src/assets/bootstrap-5.3/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../../src/assets/datatables/datatables.min.css">
-    <script src="../../src/assets/bootstrap-5.3/js/bootstrap.bundle.min.js"></script>
-    <script src="../../src/assets/jquery/jquery-3.7.0.min.js"></script>
-    <script src="../../src/assets/datatables/datatables.min.js"></script>
+    <link rel="stylesheet" href="/src/assets/bootstrap-5.3/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/src/assets/datatables/datatables.min.css">
+    <script src="/src/assets/bootstrap-5.3/js/bootstrap.bundle.min.js"></script>
+    <script src="/src/assets/jquery/jquery-3.7.0.min.js"></script>
+    <script src="/src/assets/datatables/datatables.min.js"></script>
     <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="../../src/icon/favicon.ico">
-    <link rel="icon" type="image/png" sizes="16x16" href="../../src/icon/favicon-16x16.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="../../src/icon/favicon-32x32.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="../../src/icon/apple-touch-icon.png">
-    <link rel="manifest" href="../../src/icon/site.webmanifest">
+    <link rel="icon" type="image/x-icon" href="/src/icon/favicon.ico">
+    <link rel="icon" type="image/png" sizes="16x16" href="/src/icon/favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/src/icon/favicon-32x32.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/src/icon/apple-touch-icon.png">
+    <link rel="manifest" href="/src/icon/site.webmanifest">
     <!-- Metas -->
     <meta property="og:image" content="https://stettbeck.de/assets/img/STETTBECK_1.png" />
     <meta property="og:description" content="Portal der FRS Stettbeck" />
