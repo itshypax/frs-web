@@ -25,15 +25,26 @@ if (isset($_POST['new']) && $_POST['new'] == 1) {
     $antwort_1 = $_POST['antwort_1'] ?? 0;
     $antwort_2 = $_POST['antwort_2'] ?? 0;
     $antwort_3 = $_POST['antwort_3'] ?? 0;
+    $antwort_check = 0;
 
-    if ($antwort_1 == $frage['antwort_1_true'] && $antwort_2 == $frage['antwort_2_true'] && $antwort_3 == $frage['antwort_3_true']) {
-        $antwort_check = true;
-    } else {
-        $antwort_check = false;
-    }
     $insert = $pdo->prepare("INSERT INTO lernfortschritt (userid, fragenid, antwort_1, antwort_2, antwort_3, ergebnis) VALUES (:uid, :id, :antwort_1, :antwort_2, :antwort_3, :ergebnis)");
     $insert->execute(array('uid' => $_SESSION['id'], 'id' => $id, 'antwort_1' => $antwort_1, 'antwort_2' => $antwort_2, 'antwort_3' => $antwort_3, 'ergebnis' => $antwort_check));
     header("Location: /lernen/themen/rs/lernen.php?thema=" . $thema . "&result=" . $id);
+}
+
+if (isset($_GET['result'])) {
+    $aw_1 = $frage['antwort_1_true'];
+    $aw_2 = $frage['antwort_2_true'];
+    $aw_3 = $frage['antwort_3_true'];
+
+    $ent_1 = $result['antwort_1'];
+    $ent_2 = $result['antwort_2'];
+    $ent_3 = $result['antwort_3'];
+
+    if ($aw_1 == $ent_1 && $aw_2 == $ent_2 && $aw_3 == $ent_3) {
+        $update = $pdo->prepare("UPDATE lernfortschritt SET ergebnis = :ergebnis WHERE id = :id");
+        $update->execute(array('ergebnis' => 1, 'id' => $result['id']));
+    }
 }
 
 ?>
